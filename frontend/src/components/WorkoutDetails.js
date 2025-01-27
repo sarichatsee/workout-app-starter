@@ -17,13 +17,13 @@ const WorkoutDetails = ({ workout }) => {
       `${process.env.REACT_APP_API_URL}/api/workouts/${workout._id}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${userModel.tokeb}`
+        'Authorization': `Bearer ${user.token}` // Corrected from userModel.tokeb to user.token
       }
     })
     const json = await response.json()
 
     if (response.ok) {
-      dispatch({type: 'DELETE_WORKOUT', payload: json})
+      dispatch({ type: 'DELETE_WORKOUT', payload: json })
     }
   }
 
